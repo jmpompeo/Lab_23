@@ -1,0 +1,32 @@
+﻿@model Lab23.Models.Movies
+
+@{
+    ViewData["Title"] = "Search By Genre";
+}
+
+<h1>Search By Genre</h1>
+
+<h4>MovieModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SearchGenre" method="post">
+            <label asp-for="Genre">Select a Genre</label>
+            <select asp-for="Genre" name="genre" id="genre">
+                <option value="action">Action</option>
+                <option value="horror">Horror</option>
+                <option value="scifi">SciFi</option>
+                <option value="comedy">Comedy</option>
+                <option value="romcom">RomCom</option>
+            </select>
+            <div>
+                <input asp-action="SearchGenre" type="submit" class="btn btn-primary" value="Search" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
