@@ -22,6 +22,8 @@ namespace Lab23.Controllers
             return View(results);
         }
 
+       
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -127,18 +129,28 @@ namespace Lab23.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> SearchGenre(Movies model)
+        public async Task<IActionResult> SearchGenre(string genre)
         {
             
-            var results = await _repository.SearchByGenre( model);
+            var results = await _repository.SearchByGenre(genre);
             return View("Index", results);
         }
 
-        public async Task<IActionResult> SearchByTitle(Movies model)
+        public IActionResult SearchGenreView()
         {
-            var results = await _repository.SearchByTitle(model);
+            return View();
+        }
+
+        public async Task<IActionResult> SearchByTitle(string title)
+        {
+            var results = await _repository.SearchByTitle(title);
             return View("Index", results);
 
+        }
+
+        public IActionResult SearchTitleView()
+        {
+            return View();
         }
     }
 }

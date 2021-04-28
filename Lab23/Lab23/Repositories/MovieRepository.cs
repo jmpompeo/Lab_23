@@ -74,19 +74,14 @@ namespace Lab23.Repositories
             return await _context.Movies.FindAsync(id);
         }
 
-        public async Task<List<Movies>> SearchByGenre(Movies model)
+        public async Task<List<Movies>> SearchByGenre(string genre)
         {
-
-
-            var results = _context.Movies.FindAsync(model);
-
-            return await _context.Movies.Where(s => s.Genre.ToLower().Contains(model.Genre.ToLower())).ToListAsync();
-
+            return await _context.Movies.Where(s => s.Genre.ToLower().Contains(genre.ToLower())).ToListAsync();
         }
 
-        public async Task<List<Movies>> SearchByTitle(Movies model)
+        public async Task<List<Movies>> SearchByTitle(string title)
         {
-            return await _context.Movies.Where(s => s.Title.ToLower().Contains(model.Title.ToLower())).ToListAsync();
+            return await _context.Movies.Where(s => s.Title.ToLower().Contains(title.ToLower())).ToListAsync();
         }
     }
 }

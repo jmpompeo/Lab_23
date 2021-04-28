@@ -15,8 +15,8 @@ namespace Lab23.Repositories
         Task<Movies> Get(int id);
         Task Update(Movies movie);
 
-        Task<List<Movies>> SearchByGenre(Movies model);
-        Task<List<Movies>> SearchByTitle(Movies model);
+        Task<List<Movies>> SearchByGenre(string genre);
+        Task<List<Movies>> SearchByTitle(string title);
 
 
     }
